@@ -1,25 +1,21 @@
-
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
   title: { 
     type: String, 
     default: null 
-},
-  date: 
-  { type: Date, 
+  },
+  date: { type: Date, 
     default: null 
-},
-  authername: 
-  {
+  },
+  authername: {
      type: String,
      default: null 
-    },
-  imgsrc: 
-  {
+  },
+  imgsrc: {
      type: String,
      default: null 
-}
+  }
 });
 
 const User=mongoose.model("User",userSchema)

@@ -1,6 +1,4 @@
 const User=require('../model/blogschema');
-
-
 exports.create=async(req,res)=>{
     const user= new User(req.body)
     console.log("userrrsrsesr..",user)
