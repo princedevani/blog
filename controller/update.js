@@ -7,7 +7,6 @@ exports.updateuser= async (req, res) => {
           if (!user) {
             res.status(404).send("id is not valid");
           }
-
           user = await User.findByIdAndUpdate(req.params.id, userdata);
           console.log(userdata);
           res.status(200).send(userdata)
