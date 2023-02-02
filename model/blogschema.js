@@ -5,7 +5,8 @@ const userSchema = new mongoose.Schema({
     type: String, 
     default: null 
   },
-  date: { type: Date, 
+  date: { 
+    type: Date, 
     default: null 
   },
   authername: {

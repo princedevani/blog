@@ -2,21 +2,6 @@ const User=require('../model/blogschema');
 var validator = require('validator');
 exports.create=async(req,res)=>{
     const user= new User(req.body)
-    // const user= new User({where: {
-    //     title: req.body.title,
-    //     date: req.body.date,
-    //     authername: req.body.authername,
-    //     imgsrc: req.body.imgsrc}
-    //   })
-    // const user = new User({
-    //     title,
-    //     date,
-    //     authername,
-    //     imgsrc
-    //  });
-    // console.log("userrrsrsesr..",user)
-    
-
     try {
         const { title,date,authername,imgsrc } = req.body;
        

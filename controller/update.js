@@ -1,11 +1,10 @@
 const User=require('../model/blogschema');
-
 exports.updateuser= async (req, res) => {
         const userdata = req.body;
         try {
           let user = await User.findById(req.params.id);
           if (!user) {
-            res.status(404).send("id is not valid");
+            throw new Error("id is not valid");
           }
           user = await User.findByIdAndUpdate(req.params.id, userdata);
           console.log(userdata);
