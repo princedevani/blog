@@ -6,7 +6,7 @@ exports.deleteuser = async (req,res)=>{
             if(!user){
                 return res.status(400).send()
             }
-            res.send(user)
+            res.status(200).send(user)
         } catch (error) {
             res.status(400).send(error)
         }

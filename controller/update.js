@@ -11,7 +11,7 @@ exports.updateuser= async (req, res) => {
           res.status(200).send(userdata)
         } catch (error) {
           console.error(error.message);
-          res.status(500).send(error.message);
+          res.status(400).send(error.message);
         }
       }
          

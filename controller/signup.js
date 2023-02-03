@@ -30,9 +30,7 @@ exports.registrationform =async(req,res)=>{
         const olduser= await Ragister.findOne({email});
         console.log("already use that",olduser)
         if(olduser){
-            
             throw new Error("user already exist.");
-            
         }
         encrytedPassword= await bcrypt.hash(password,8)
 

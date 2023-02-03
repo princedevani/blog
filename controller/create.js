@@ -26,6 +26,7 @@ exports.create=async(req,res)=>{
          }
 
         await user.save()
+        console.log("successfully",user)
         res.status(200).send(user)
     } catch (error) {
         

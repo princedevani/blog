@@ -24,8 +24,6 @@ const loginSchema=new mongoose.Schema({
             required: true
         }
     }]
-   
-
 })
 
 loginSchema.methods.generateAuthToken = async function () {

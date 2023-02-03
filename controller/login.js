@@ -11,13 +11,14 @@ exports.loginform =async(req,res)=>{
         }
         const user =await Ragister.findOne({email})
         if(user && (await bcrypt.compare(password,user.password))){
-            
-            res.status(201).send(user);  
+            const token = await user.generateAuthToken()
+            console.log("successfully login",user,token)
+            res.status(200).send({user,token});
         }else{
             throw new Error("Invalid email and password")
         }
     } catch (error) {
         console.log("err...",error)
-        res.status(201).send({error: error.message})
+        res.status(400).send({error: error.message})
     }
     }
