@@ -30,8 +30,9 @@ exports.registrationform =async(req,res)=>{
         const olduser= await Ragister.findOne({email});
         console.log("already use that",olduser)
         if(olduser){
-            res.status(409).send({error : "user already exist."})
-            res.sendStatus(200)
+            
+            throw new Error("user already exist.");
+            
         }
         encrytedPassword= await bcrypt.hash(password,8)
 
@@ -40,8 +41,10 @@ exports.registrationform =async(req,res)=>{
             email:email.toLowerCase(),
             password:encrytedPassword,
         });
+        const token = await ragister.generateAuthToken()
+
         console.log("successfully ragister",ragister)
-        res.status(201).send(ragister);
+        res.status(200).send({ragister,token});
         } catch (error) {
         console.log("error",error.message);
         res.status(400).send(error.message);  
