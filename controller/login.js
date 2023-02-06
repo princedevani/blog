@@ -3,6 +3,7 @@ const Ragister=require('../model/loginschema');
 
 exports.loginform =async(req,res)=>{
     try {
+        
         const {email,password}=req.body;
     
         if(!(email && password)){

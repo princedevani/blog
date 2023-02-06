@@ -1,3 +1,4 @@
+const fileUpload = require("express-fileupload");
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
@@ -15,7 +16,7 @@ const userSchema = new mongoose.Schema({
   },
   imgsrc: {
      type: String,
-     default: null 
+     default: null,
   }
 });
 
