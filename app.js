@@ -4,7 +4,6 @@ const path = require('path')
 require('dotenv').config();
 require("./database").connect();
 const userRouter = require('./router/user')
-
 const app = express();
 app.use(cors())
 app.use(express.json());
@@ -28,4 +27,8 @@ var upload = multer({dest:'public\images'});
 
 app.use("/static",express.static(path.join(__dirname, 'public')))
 app.use(userRouter)
+
+const path = require("path");
+app.use(express.static(path.join(__dirname, '/public/images')));
+
 module.exports = app;

@@ -33,7 +33,7 @@ loginSchema.methods.generateAuthToken = async function () {
     ragister.tokens = ragister.tokens.concat({ token })
     await ragister.save()
     
-    return token
+    return token 
   }
 
 

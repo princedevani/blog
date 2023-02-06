@@ -31,7 +31,7 @@ const upload = multer({
 // const upload = multer({ storage: storage })
 
 
-exports.uploadimg = upload,async(req, res) => {
+exports.upload = upload,async(req, res) => {
     try {
         const images =await req.image;
         return JSON.stringify({"status": 200, "error": null, "response": results});   
