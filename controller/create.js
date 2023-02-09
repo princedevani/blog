@@ -3,12 +3,18 @@ var validator = require('validator');
 exports.create=async(req,res)=>{
     const user= new User(req.body)
     try {
-        const { title,date,authername,imgsrc } = req.body;
+        const { path,title,date,authername,imgsrc,description } = req.body;
        
-        if (!(title && authername && imgsrc)) {
+        if (!(path && title && authername && imgsrc && description)) {
             throw new Error("All input is required");
      
          }
+         if (!path.trim()) {
+            throw new Error("path  is required")
+         }else if(!/^[A-Za-z0-9]+(-[A-Za-z0-9]+)*$/.test(path)){
+            throw new Error("only use for character(a-zA-z0-9) and desh(-) in path value");
+         }
+
         if (!title.trim()) {
             throw new Error("title  is required")
          }  
